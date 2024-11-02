@@ -16,33 +16,44 @@ ui <- fluidPage(
     column(width = 8,
            tags$hr(), 
            plotOutput("heatmap"),
+           tags$hr(),
            div(style = "text-align: center;",
            downloadButton("download_heatmap", "Download Heatmap", style = button_style)
            ),
            tags$hr()),
     column(width = 2),
-    tags$hr(style = "border-top: 3px solid #333; width: 100%;")),
+    tags$hr(style = "border-top: 3px dashed #333; width: 90%;")),
   #--------------------------------------------------------
   fluidRow(
     column(width = 4,
-      h1("1. Import Risk Data"),
-      fileInput("file", "Upload CSV File", accept = c(".csv")),
-      tags$hr(),
-      h1("2. Manually Input Risk Data"),
+      h2("1. Manual Input"),
       textInput("risk_name", "Risk Name",value = "Example Risk"),
       textInput("risk_description", "Risk Description",value = "Description of Example Risk"),  # Added description input
       numericInput("materiality", "Materiality (1-5)", value = 1, min = 1, max = 5, step = 1),
       numericInput("subjectivity", "Subjectivity (1-5)", value = 1, min = 1, max = 5, step = 1),
-      actionButton("add_risk", "Add Risk", style = button_style),
-      tags$hr(),
-      h1("3. Remove Risk Data"),
-      selectInput("risk_select", "Select Risk to Delete", choices = NULL),
-      actionButton("delete_risk", "Delete Selected Risk", style = button_style)),
-    column(width = 8,
       div(style = "text-align: center;",
-           downloadButton("download_data", "Download Risk Data", style = button_style)
-          ),
-      DTOutput("risk_table"))
+      actionButton("add_risk", "Add Risk", style = button_style)
+      ),
+      tags$hr(style = "border-top: 3px dashed #333; width: 90%;"),
+      
+      h2("2. Import Input"),
+      fileInput("file", "Upload CSV File", accept = c(".csv")),
+      tags$hr(style = "border-top: 3px dashed #333; width: 90%;"),
+
+      h2("3. Remove Risk Data"),
+      selectInput("risk_select", "Select Risk to Delete", choices = NULL),
+      div(style = "text-align: center;",
+      actionButton("delete_risk", "Delete Selected Risk", style = button_style)
+      ),
+      tags$hr()),
+    
+    column(width = 8,
+      DTOutput("risk_table"),
+      tags$hr(),
+      div(style = "text-align: center;",
+          downloadButton("download_data", "Download Risk Data", style = button_style)
+      ),
+      tags$hr())
   )
   #--------------------------------------------------------
   )

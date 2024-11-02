@@ -5,7 +5,7 @@ account: headline-grabber
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 13209432
-bundleId: 9304195
+bundleId: 9306161
 url: https://headline-grabber.shinyapps.io/Risk-Heatmap/
 version: 1
 asMultiple: FALSE
