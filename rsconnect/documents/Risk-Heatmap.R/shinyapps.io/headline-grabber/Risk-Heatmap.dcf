@@ -1,0 +1,13 @@
+name: Risk-Heatmap
+title: Risk-Heatmap
+username: headline-grabber
+account: headline-grabber
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 13209432
+bundleId: 9304195
+url: https://headline-grabber.shinyapps.io/Risk-Heatmap/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: host.R|List Packages.R|R Packages
